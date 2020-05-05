@@ -5,7 +5,7 @@ import List from '../pages/List'
 import Item from '../pages/Item' 
 
 export default (
-    <Route path="/" component={Login}>
+    <Route exact path="/" component={Login}>
         <Route path="login" component={Login}/>
         <Route path="posts" component={List}>
             <Route path=":id" component={Item}/>

@@ -5,8 +5,9 @@ import {
   LaptopOutlined,
   NotificationOutlined,
 } from "@ant-design/icons";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,Link } from "react-router-dom"; 
 import "./index.scss";
+import TodoList from "../TodoList";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -32,10 +33,10 @@ class Home extends Component {
               style={{ height: "100%", borderRight: 0 }}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
-                <Menu.Item key="1">option1</Menu.Item>
-                <Menu.Item key="2">option2</Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
+                <Menu.Item key="1"><Link to="/home/todo">TodoList</Link></Menu.Item>
+                <Menu.Item key="2"><Link to="/home/todo1">TodoList1</Link></Menu.Item>
+                <Menu.Item key="3"><Link to="/home/todo2">TodoList2</Link></Menu.Item>
+                <Menu.Item key="4"><Link to="/home/todo3">TodoList3</Link></Menu.Item>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
                 <Menu.Item key="5">option5</Menu.Item>
@@ -70,6 +71,8 @@ class Home extends Component {
               }}
             >
               Content
+              
+              <Route path="/home/todo" component={TodoList} />
             </Content>
           </Layout>
         </Layout>

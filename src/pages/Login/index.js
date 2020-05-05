@@ -14,7 +14,7 @@ class Login extends Component {
     axios.post('/api/login',values).then(res => {
         localStorage.setItem('user',JSON.stringify(values))
         console.log(res.data)
-        this.props.history.push({pathname:'/home'});
+        this.props.history.push({pathname:'/home/todo'});
     })
   };
 

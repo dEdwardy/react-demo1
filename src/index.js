@@ -7,6 +7,7 @@ import * as App from "./routes";
 import * as serviceWorker from "./serviceWorker";
 import Login from "./pages/Login";
 import List from "./pages/List";
+import TodoList from "./pages/TodoList";
 import Home from "./pages/Layout";
 ReactDOM.render(
   // <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
     <Route path="/" exact component={Login} />
     <Route path="/login" component={Login} />
     <Route path="/home" component={Home} />
+    {/* <Route path="/todo" component={TodoList} /> */}
     <Route path="/list" component={List} />
   </Router>,
   /* </React.StrictMode> */
