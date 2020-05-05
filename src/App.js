@@ -1,28 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Button } from 'antd';
-import './App.css';
+import React, { Component } from 'react';
+import PostList from './components/PostList'
+import Modal from './components/Modal'
+import Login from './pages/Login'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button>哈啊哈</Button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      showModal: true
+    }
+  }
+  //close modal
+  closeModal = () => {
+    this.setState({
+      showModal:false
+    })
+  }
+  render() {
+    return (
+      <Login/>
+      //  <div>
+      //    <h2>Dashbord</h2>
+      //    {
+      //      this.state.showModal && (
+      //        <Modal onClose={ this.closeModal } >Modal Dialog </Modal>
+      //      )
+      //    }
+      //  </div>
+    );
+  }
 }
+// function App() {
+//   return (
+//     <div>
+//       <PostList/>
+//     </div>
+//   );
+// }
 
 export default App;
