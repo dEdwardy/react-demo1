@@ -1,74 +1,62 @@
 import React, { Component } from 'react';
-import { Input, Button } from 'antd'
-class TodoList extends Component{
-    constructor(props){
+import store from '../../store'
+import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM } from '../../store/actionTypes'
+import { addItem, delItem, toggleItem, inputChange } from '../../store/actionCreators'
+import TodoListUI from './TodoListUI'
+class TodoList extends Component {
+    constructor(props) {
         super(props)
-        this.state = { 
-            input:'',
-            list : [
-                {
-                    id:0,content:'react'
-                },
-                {
-                    id:1,content:'react-router'
-                },
-                {
-                    id:2,content:'redux'
-                },
-                {
-                    id:3,content:'react-redux'
-                },
-            ] 
-        }
+        this.state = store.getState()
         this.handleClickAdd = this.handleClickAdd.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleToggle = this.handleToggle.bind(this)
+        this.storeChange = this.storeChange.bind(this)
+        store.subscribe(this.storeChange)
     }
-    handleClickAdd(){
-        console.log(this.state.input)
-        console.log([
-            ...this.state.list,
-            {
-                id:this.state.list.length,
-                content:this.state.input
-            }
-
-        ])
-        const state = {
-            ...this.state
-        }
-        state.list.push({
-            id:state.list.length,
-            content:state.input
-        })
-        this.setState({
-            state
-        })
+    storeChange() {
+        this.setState(store.getState())
     }
-    handleInputChange(e){
-        const target = e.target
-        console.log(e.target.value)
-        this.setState({
-            [target.name]:target.value
-        })
+    handleToggle(index) {
+        const action = toggleItem(index)
+        store.dispatch(action)
     }
-    render(){
-        return (
-            <div className="todo-list-wrapper">
-            <Input placeholder="Please Input" name="input" onChange={this.handleInputChange} value={this.state.input}  style={{ margin:'10px',width:'400px'}}/>
-            <Button onClick={this.handleClickAdd} type="primary">add</Button>
-            <div className="list" style={{position:'relative'}}>
-                <ol>
-            {
-                this.state.list.map(item => {
-                    return (
-                        <li style={{ margin:'12px 0'}} key={item.id}><span>{item.content} </span> <Button size="small" style={{position:'absolute',left:'400px'}}>Finish</Button></li>
-                    )
-                })
-            }
-            </ol>
-            </div>
-            </div>
-        )
+    handleClickAdd() {
+        if (!this.state.inputValue) return
+        const action = addItem(this.state.inputValue)
+        store.dispatch(action)
+    }
+    handleInputChange(e) {
+        const action = inputChange(e.target.value)
+        store.dispatch(action)
+    }
+    render() {
+        return <TodoListUI
+            inputValue={this.state.inputValue}
+            todoList={this.state.todoList}
+            handleToggle={this.handleToggle}
+        />
+        // return (
+        //     <div className="todo-list-wrapper">
+        //         <Input placeholder="Please Input" onChange={this.handleInputChange} value={this.state.inputValue} style={{ margin: '10px', width: '400px' }} />
+        //         <Button onClick={this.handleClickAdd} type="primary">add</Button>
+        //         <div className="list" style={{ position: 'relative' }}>
+        //             <ol>
+        //                 {
+        //                     this.state.todoList.map((item, index) => {
+        //                         return (
+        //                             <li style={{ margin: '12px 0' }} key={index}><span>{item.content} </span>
+        //                                 <span style={{ position: 'absolute', left: '400px' }}>
+        //                                     <Button size="small" style={{ display: item.complete ? 'none' : '' }} onClick={this.handleToggle.bind(this, index)} >完成</Button>
+        //                                     <Button size="small" style={{ display: item.complete ? '' : 'none' }} onClick={this.handleToggle.bind(this, index)} >未完成</Button>
+        //                                 </span>
+        //                             </li>
+        //                         )
+        //                     })
+        //                 }
+        //             </ol>
+        //         </div>
+        //     </div >
+        // )
     }
 }
 export default TodoList;
