@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import store from '../../store'
 import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM } from '../../store/actionTypes'
-import { addItem, delItem, toggleItem, inputChange } from '../../store/actionCreators'
+import { getTodoList,addItem, delItem, toggleItem, inputChange,getMyListAction } from '../../store/actionCreators'
 import TodoListUI from './TodoListUI'
 class TodoList extends Component {
     constructor(props) {
@@ -12,6 +12,15 @@ class TodoList extends Component {
         this.handleToggle = this.handleToggle.bind(this)
         this.storeChange = this.storeChange.bind(this)
         store.subscribe(this.storeChange)
+    }
+    componentDidMount() {
+        //redux-thunk
+        // const action = getTodoList();
+        // store.dispatch(action);
+
+        //redux-saga
+        const action = getMyListAction()
+        store.dispatch(action)
     }
     storeChange() {
         this.setState(store.getState())

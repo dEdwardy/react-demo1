@@ -1,4 +1,4 @@
-import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM } from './actionTypes'
+import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM,GET_LIST } from './actionTypes'
 
 const defaultState = {
   inputValue: '',
@@ -32,6 +32,11 @@ export default (state = defaultState, action) => {
       let idx = newState.todoList.findIndex(item => item.content = action.payload.content)
       newState.todoList.splice(idx, 1)
       return newState
+    case GET_LIST:
+      return {
+        ...state,
+        todoList:action.data
+      }
     default:
       return state
   }

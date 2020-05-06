@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://www.fastmock.site/mock/d351513ee20dc1a6624cc20e8a74d918/react01'
+axios.defaults.baseURL = 'http://rap2.taobao.org:38080/app/mock/253273'
 axios.create({
     timeout: 5000
   });
