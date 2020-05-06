@@ -5,8 +5,8 @@ class TodoListUI extends Component {
   render() {
     return (
       <div className="todo-list-wrapper">
-        <Input placeholder="Please Input" onChange={this.handleInputChange} value={this.props.inputValue} style={{ margin: '10px', width: '400px' }} />
-        <Button onClick={this.handleClickAdd} type="primary">add</Button>
+        <Input placeholder="Please Input" onChange={this.props.handleInputChange} value={this.props.inputValue} style={{ margin: '10px', width: '400px' }} />
+        <Button onClick={this.props.handleClickAdd} type="primary">add</Button>
         <div className="list" style={{ position: 'relative' }}>
           <ol>
             {

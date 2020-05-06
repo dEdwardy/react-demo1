@@ -26,6 +26,7 @@ class TodoList extends Component {
         store.dispatch(action)
     }
     handleInputChange(e) {
+        console.log(e)
         const action = inputChange(e.target.value)
         store.dispatch(action)
     }
@@ -33,6 +34,8 @@ class TodoList extends Component {
         return <TodoListUI
             inputValue={this.state.inputValue}
             todoList={this.state.todoList}
+            handleClickAdd= {this.handleClickAdd}
+            handleInputChange={this.handleInputChange}
             handleToggle={this.handleToggle}
         />
         // return (
