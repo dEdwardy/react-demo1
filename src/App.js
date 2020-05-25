@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PostList from './components/PostList'
 import Modal from './components/Modal'
 import Login from './pages/Login'
+import Header from './containers/Header'
+import Banner from './containers/Banner'
 import './App.css'
 
 class App extends Component {
@@ -19,7 +21,10 @@ class App extends Component {
   }
   render() {
     return (
-      <Login/>
+      <>
+      <Header/>
+      <Banner/>
+      </>
       //  <div>
       //    <h2>Dashbord</h2>
       //    {
