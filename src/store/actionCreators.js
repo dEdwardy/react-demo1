@@ -1,6 +1,6 @@
 import { ADD_ITEM, TOGGLE_ITEM, DEL_ITEM, CHANGE_INPUT,GET_LIST,GET_MY_LIST } from './actionTypes'
 import store from '../store'
-import axios from '..//http';
+import axios from '../http';
 
 export const addItem = (payload) => {
   return {

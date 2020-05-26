@@ -8,9 +8,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_BANNER:
+      console.log(action)
       return {
         ...state,
-        banners: action.banner
+        ...action
       };
     default:
       return state;

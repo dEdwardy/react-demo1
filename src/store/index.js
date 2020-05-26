@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import banner from './modules/banner/reducer'
 import user from './modules/user/reducer'
 // 我的一个reducer
-import reducer from './reducer'
+// import reducer from './reducer'
 import createSagaMiddleware from 'redux-saga'
 import mySagas from './sagas'
 

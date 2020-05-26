@@ -7,7 +7,7 @@ class Banner extends Component {
     state = { colors: [], current: 0 }
     constructor(props) {
         super(props)
-        console.log(this.props)
+        console.log(this.props.getBanner)
     }
 
     componentDidMount(){}
@@ -16,7 +16,7 @@ class Banner extends Component {
 
     }
     componentDidMount() {
-        // this.props.getBanner();
+        this.props.getBanner();
     }
     render() {
         const list = [
