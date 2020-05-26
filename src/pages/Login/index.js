@@ -10,7 +10,6 @@ class Login extends Component {
   }
    onFinish (values) {
     console.log("Received values of form: ", values);
-    let _this= this;
     axios.post('/api/login',values).then(res => {
         localStorage.setItem('user',JSON.stringify(values))
         console.log(res.data)

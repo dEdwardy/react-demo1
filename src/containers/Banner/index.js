@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './index.scss'
-import { getBanners } from '../../store/modules/banner/actionCreator'
+import { getBanners,setListAction } from '../../store/modules/banner/actionCreator'
 import { Carousel } from 'antd'
 class Banner extends Component {
     state = { colors: [], current: 0 }

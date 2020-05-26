@@ -10,7 +10,9 @@ function* mySaga() {
   // yield takeEvery(GET_BANNER, getBanner);
   yield takeEvery(GET_BANNER, function*(){
     const banner = yield select(state => state.banner.banners);
-    const {  data } = yield call(axios.get,'http://rap2.taobao.org:38080/app/mock/255560/api/banner');
+    // const {  data } = yield call(axios.get,'http://rap2.taobao.org:38080/app/mock/255560/api/banner');
+    
+    const {  data } = yield axios.get('http://rap2.taobao.org:38080/app/mock/255560/api/banner');
     console.log(data.data.banner)
     console.log(GET_BANNER,banner)
   });
