@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactImageProcess from 'react-image-process';
 import './index.scss'
 import { Carousel } from 'antd'
 export default class Banner extends Component {
@@ -11,10 +10,7 @@ export default class Banner extends Component {
 
 
     beforeChange(from, to) {
-        console.log(to)
-        this.setState({
-            current: to
-        })
+        console.log(from, to)
     }
     render() {
         const list = [
@@ -41,18 +37,14 @@ export default class Banner extends Component {
         ]
 
         return (
-            <div className="banner-wrap" style={{ backgroundColor: this.state.colors[this.state.current] }}>
+            <div className="banner-wrap" >
                 <div className="banner-content">
                     <Carousel autoplay beforeChange={this.beforeChange.bind(this)}>
                         {
                             list.map((item, index) => {
                                 return (
-                                    <ReactImageProcess key={index} mode="primaryColor" onComplete={color => console.log(color)}>
-                                        <img
-                                        src={item.src}
-                                    />
-                                    </ReactImageProcess>
-                                    
+                                    <img key={index} src={item.src} />
+
                                 );
                             })
                         }
