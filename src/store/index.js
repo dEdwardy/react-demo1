@@ -1,5 +1,7 @@
 // 必要的redux方法
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import banner from './modules/banner/reducer'
+import user from './modules/user/reducer'
 // 我的一个reducer
 import reducer from './reducer'
 import createSagaMiddleware from 'redux-saga'
@@ -14,6 +16,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
 // const enhancer = composeEnhancers(applyMiddleware(thunk));
 const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 
+const reducer = combineReducers({
+  banner,
+})
 // 整合store createStore只接受2个参数 
 const store = createStore(
   reducer, /* preloadedState, */

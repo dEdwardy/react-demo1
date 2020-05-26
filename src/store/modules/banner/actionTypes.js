@@ -1,0 +1,1 @@
+export const GET_BANNER = 'banner.GET_BANNER;'

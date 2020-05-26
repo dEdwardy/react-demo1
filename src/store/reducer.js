@@ -1,6 +1,7 @@
-import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM,GET_LIST } from './actionTypes'
+import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM, GET_LIST } from './actionTypes'
 
 const defaultState = {
+  banners: [],
   inputValue: '',
   todoList: [
     {
@@ -35,7 +36,7 @@ export default (state = defaultState, action) => {
     case GET_LIST:
       return {
         ...state,
-        todoList:action.data
+        todoList: action.data
       }
     default:
       return state
