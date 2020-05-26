@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './index.scss'
+import { getBanners } from '../../store/modules/banner/actionCreator'
 import { Carousel } from 'antd'
-export default class Banner extends Component {
+class Banner extends Component {
     state = { colors: [], current: 0 }
     constructor(props) {
         super(props)
+        console.log(this.props)
     }
 
 
 
     beforeChange(from, to) {
-        console.log(from, to)
+
+    }
+    componentDidMount() {
+        // this.props.getBanner();
     }
     render() {
         const list = [
@@ -57,3 +63,18 @@ export default class Banner extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        banners: state.banner
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    getBanner() {
+        let action = getBanners()
+        console.log(action)
+        dispatch(action)
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Banner)

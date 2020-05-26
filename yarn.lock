@@ -8390,11 +8390,6 @@ phin@^2.9.1:
   resolved "https://registry.npm.taobao.org/phin/download/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha1-+basEKA1Y2+2XfxXaqqhe4dDElw=
 
-photo-magician@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npm.taobao.org/photo-magician/download/photo-magician-0.3.0.tgz#5be02d6573ca1e62cbd44e02eb9a6abd8c0fb2db"
-  integrity sha1-W+AtZXPKHmLL1E4C65pqvYwPsts=
-
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.npm.taobao.org/picomatch/download/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
@@ -9814,16 +9809,6 @@ react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.7.tgz?cache=0&sync_timestamp=1584748715407&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-error-overlay%2Fdownload%2Freact-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha1-Hc+0WatnHVP2YKmRUTyy8KBVMQg=
-
-react-image-process@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.npm.taobao.org/react-image-process/download/react-image-process-0.2.4.tgz#c26847c52c4b1dbf9a2bc30dbc2d8d2494cc027c"
-  integrity sha1-wmhHxSxLHb+aK8MNvC2NJJTMAnw=
-  dependencies:
-    babel-runtime "^6.23.0"
-    classnames "^2.2.5"
-    photo-magician "^0.3.0"
-    prop-types "^15.6.0"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"
