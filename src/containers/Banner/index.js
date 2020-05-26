@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactImageProcess from 'react-image-process';
 import './index.scss'
 import { Carousel } from 'antd'
 export default class Banner extends Component {
@@ -8,7 +7,7 @@ export default class Banner extends Component {
         super(props)
     }
 
-
+    componentDidMount(){}
 
     beforeChange(from, to) {
         console.log(to)
@@ -47,11 +46,9 @@ export default class Banner extends Component {
                         {
                             list.map((item, index) => {
                                 return (
-                                    <ReactImageProcess key={index} mode="primaryColor" onComplete={color => console.log(color)}>
-                                        <img
+                                        <img key={index}
                                         src={item.src}
                                     />
-                                    </ReactImageProcess>
                                     
                                 );
                             })

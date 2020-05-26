@@ -2,8 +2,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 // 我的一个reducer
 import reducer from './reducer'
-//redux-thunk是请求的中间件，当我们在讲action部分会提到它
-import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import mySagas from './sagas'
 
