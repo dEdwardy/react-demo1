@@ -11,7 +11,12 @@ export default (state = initialState, action) => {
       console.log(action)
       return {
         ...state,
-        ...action
+      };
+    case actionTypes.SET_BANNER:
+
+      return {
+        ...state,
+        banners: action.data
       };
     default:
       return state;

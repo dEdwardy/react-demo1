@@ -5,3 +5,7 @@ export function getBanners() {
     type: actionTypes.GET_BANNER
   }
 }
+export const setListAction = data => ({
+  type: actionTypes.SET_BANNER,
+  data
+})

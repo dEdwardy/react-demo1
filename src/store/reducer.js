@@ -1,4 +1,4 @@
-import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM, GET_LIST,SET_LIST } from './actionTypes'
+import { ADD_ITEM, DEL_ITEM, CHANGE_INPUT, TOGGLE_ITEM, GET_LIST, SET_LIST } from './actionTypes'
 
 const defaultState = {
   banners: [],
@@ -39,9 +39,11 @@ export default (state = defaultState, action) => {
         todoList: action.data
       }
     case SET_LIST:
-      return{
+      console.log('set-list')
+      console.log(action.data)
+      return {
         ...state,
-        banner:action.data
+        banner: action.data
       }
     default:
       return state

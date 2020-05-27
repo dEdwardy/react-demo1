@@ -1,4 +1,4 @@
-import { ADD_ITEM, TOGGLE_ITEM, DEL_ITEM, CHANGE_INPUT,GET_LIST,GET_MY_LIST,SET_LIST } from './actionTypes'
+import { ADD_ITEM, TOGGLE_ITEM, DEL_ITEM, CHANGE_INPUT, GET_LIST, GET_MY_LIST, SET_LIST } from './actionTypes'
 import store from '../store'
 import axios from '../http';
 
@@ -27,25 +27,25 @@ export const inputChange = (payload) => {
     payload
   }
 }
-export const getListAction = (data) =>({
-  type:GET_LIST,
+export const getListAction = (data) => ({
+  type: GET_LIST,
   data
 })
-export const setListAction = data = ({
-  type:SET_LIST,
+export const setListAction = data => ({
+  type: SET_LIST,
   data
 })
 //redux-thunk 中间件返回function action 一般不能返回funciton 只能返回obj
 export const getTodoList = () => {
   return (dispatch) => {
-     axios.get('/api/list').then(res => {
-       const data = res.data.data;
-       const action = getListAction(data)
-       dispatch(action)
-     })
+    axios.get('/api/list').then(res => {
+      const data = res.data.data;
+      const action = getListAction(data)
+      dispatch(action)
+    })
   }
 }
 
 export const getMyListAction = () => ({
-  type:GET_MY_LIST
+  type: GET_MY_LIST
 })

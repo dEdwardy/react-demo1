@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './index.scss'
-import { getBanners,setListAction } from '../../store/modules/banner/actionCreator'
+import { getBanners } from '../../store/modules/banner/actionCreator'
 import { Carousel } from 'antd'
 class Banner extends Component {
     state = { colors: [], current: 0 }
@@ -10,7 +10,7 @@ class Banner extends Component {
         console.log(this.props.getBanner)
     }
 
-    componentDidMount(){}
+    componentDidMount() { }
 
     beforeChange(from, to) {
 
@@ -45,9 +45,9 @@ class Banner extends Component {
         return (
             <div className="banner-wrap" >
                 <div className="banner-content">
-                    <Carousel autoplay beforeChange={this.beforeChange.bind(this)}>
+                    <Carousel autoplay >
                         {
-                            list.map((item, index) => {
+                            this.props.banners.banners.map((item, index) => {
                                 return (
                                     <img key={index} src={item.src} />
 
