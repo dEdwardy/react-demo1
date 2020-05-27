@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import './index.scss'
 import { getBanners } from '../../store/modules/banner/actionCreator'
 import { Carousel } from 'antd'
+import {  createFromIconfontCN } from "@ant-design/icons";
+const IconFont = createFromIconfontCN({
+    scriptUrl: "//at.alicdn.com/t/font_1841865_jfeau4m4mee.js",
+});
 class Banner extends Component {
     state = { colors: [], current: 0 }
     constructor(props) {
@@ -15,37 +19,20 @@ class Banner extends Component {
     beforeChange(from, to) {
 
     }
+    prev(){
+        this.refs.banner.prev()
+    }
+    next(){
+        this.refs.banner.next()
+    }
     componentDidMount() {
         this.props.getBanner();
     }
     render() {
-        const list = [
-            {
-                src: 'http://p1.music.126.net/DpzcCKT0Rui51f5LUltiUg==/109951165016275773.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/6LxsGneAC2BPO_5VkMnEfQ==/109951165016281402.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/R8GPoYxPNsotz5Mcai9qvw==/109951165014157731.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/xn2iAm2aUuIWIiN3b-LhWw==/109951165014179896.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/6g3zhWHZUe-WzRguFxd-oA==/109951165016301546.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/A-jGOclY9kcBBqrgvlvCkw==/109951165014193788.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/vEvHoukKrLKsaatA_8ktbg==/109951165014270091.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/JCahgwy7T3V35qtG9720OA==/109951165014273671.jpg?imageView&quality=89'
-            }, {
-                src: 'http://p1.music.126.net/Z-RBlvTjR__WaRXl_hjW0w==/109951165014818029.jpg?imageView&quality=89'
-            }
-
-        ]
-
         return (
             <div className="banner-wrap" >
                 <div className="banner-content">
-                    <Carousel autoplay >
+                    <Carousel ref="banner" autoplay >
                         {
                             this.props.banners.banners.map((item, index) => {
                                 return (
@@ -56,7 +43,12 @@ class Banner extends Component {
                         }
 
                     </Carousel>
-
+                    <a className="arrow-left" onClick={() => this.prev()}>
+                        <IconFont type="iconzuo"  style={{fontSize:'40px'}} />
+                    </a> 
+                    <a className="arrow-right" onClick={() => this.next()}>
+                        <IconFont type="iconyou" style={{fontSize:'40px'}} />
+                    </a> 
                 </div>
 
             </div>

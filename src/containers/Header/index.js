@@ -4,7 +4,7 @@ import { SearchOutlined, createFromIconfontCN } from "@ant-design/icons";
 import img from '../../assets/img/top.png'
 import "./index.scss";
 const IconFont = createFromIconfontCN({
-    scriptUrl: "//at.alicdn.com/t/font_1841865_rgqy6x91w1.js",
+    scriptUrl: "//at.alicdn.com/t/font_1841865_jfeau4m4mee.js",
 });
 export default function () {
     const menuList = [
